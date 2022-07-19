@@ -1,0 +1,18 @@
+.text
+	LDR R0,=A
+	LDR R1,=B
+	LDRB R4,[R1]
+	MOV R3,#0
+	L1:
+		LDRB R2,[R0]
+		ADD R3,R3,R2
+		SUB R4,R4,#1
+		CMP R4,#0
+		BEQ L2
+		ADD R0,R0,#1
+		BNE L1
+	L2:
+		SWI 0x11
+.data
+	A:.BYTE 2,4,6,8,10
+	B:.BYTE 5

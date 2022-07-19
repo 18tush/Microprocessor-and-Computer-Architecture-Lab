@@ -1,0 +1,10 @@
+.text
+	LDR R0,=A
+	LDR R1,=B
+	LDR R2,[R0]
+	LDR R3,[R1]
+	ADD R5,R2,R3,LSL #2
+	SWI 0x11
+.data
+	A:.WORD 2
+	B:.WORD 10

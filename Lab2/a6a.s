@@ -1,0 +1,16 @@
+.text
+	LDR R0,=A
+	LDR R1,=B
+	LDR R4,[R1]
+	MOV R3,#0
+	L:
+		LDR R2,[R0],#4
+		ADD R3,R3,R2
+		SUB R4,R4,#1
+		CMP R4,#0
+		BEQ OUT
+		BNE L
+	OUT:SWI 0x11
+.data
+	A:.WORD 1,3,5,7,9,11,13,15,17,19
+	B:.WORD 10

@@ -1,0 +1,22 @@
+.text
+	MOV R0,#100
+	MOV R1,#5
+	MOV R2,R0
+	MOV R3,R1
+
+	L1:
+		CMP R2,R3
+		BEQ OUT
+		BLT L2
+		SUB R2,R2,R3
+		CMP R3,R2
+		BEQ OUT
+		BNE L1
+	L2:
+		SUB R3,R3,R2
+		CMP R3,R2
+		BEQ OUT
+		BNE L1
+	OUT:
+		SWI 0x11
+.end
